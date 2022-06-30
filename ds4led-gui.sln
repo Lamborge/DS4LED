@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.NETCoreApp1", "Avalonia.NETCoreApp1.csproj", "{D4CF22C4-5940-4F58-8EFB-46C1CA8D0CB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ds4led-gui", "ds4led-gui.csproj", "{D4CF22C4-5940-4F58-8EFB-46C1CA8D0CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
