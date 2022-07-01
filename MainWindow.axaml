@@ -3,9 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:colorpicker="clr-namespace:AvaloniaColorPicker;assembly=AvaloniaColorPicker"
-        mc:Ignorable="d" d:DesignWidth="655" d:DesignHeight="400"
-        MinWidth="650" MinHeight="400"
-        MaxWidth="650" MaxHeight="400"
+        Icon="Assets/icon.ico"
+        mc:Ignorable="d" d:DesignWidth="670" d:DesignHeight="370"
+        MinWidth="650" MinHeight="370"
+        MaxWidth="650" MaxHeight="370"
         x:Class="DS4LED.MainWindow"
         CanResize="False"
         Background="#696969"
@@ -27,11 +28,6 @@
                 <TextBox Grid.Column="2" Width="190" Text="0005:054C:05C4.0009" VerticalContentAlignment="Center" FontSize="15" Name="DeviceName"></TextBox>
                 <TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="6" Foreground="#303030">you can find it in /sys/class/leds/</TextBlock>
             </Grid>
-            
             <Button Grid.Row="2" HorizontalAlignment="Center" Margin="10" FontSize="20" Foreground="#212121" Click="Button_OnClick">Apply</Button>
         </Grid>
-        
-        
-        
-
 </Window>

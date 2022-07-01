@@ -13,18 +13,18 @@ namespace DS4LED
         
         public MainWindow()
         {
-            if (Environment.UserName != "root")
+            /*if (Environment.UserName != "root")
             {
                 var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow("title", "Please run app as root!");
                 messageBoxStandardWindow.Show();
             }
             else
-            {
+            {*/
                 InitializeComponent();
                 ColorPicker color = this.FindControl<ColorPicker>("colorPicker");
                 TextBox DeviceName = this.FindControl<TextBox>("DeviceName");
 
-            }
+            //}
         }
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
