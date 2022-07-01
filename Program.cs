@@ -1,8 +1,9 @@
 ﻿using Avalonia;
 using System;
+using System.Diagnostics;
 using System.IO;
 
-namespace Avalonia.NETCoreApp1
+namespace DS4LED
 {
     class Program
     {
@@ -10,8 +11,21 @@ namespace Avalonia.NETCoreApp1
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
         // yet and stuff might break.
         [STAThread]
-        public static void Main(string[] args) => BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        public static void Main(string[] args)
+        {
+            if (Environment.UserName != "root")
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo() { FileName = "pkexec", Arguments = $"env DISPLAY={Environment.GetEnvironmentVariable("DISPLAY")} XAUTHORITY={Environment.GetEnvironmentVariable("XAUTHORITY")}  {Directory.GetCurrentDirectory()}/DS4LED", }; 
+                Process proc = new Process() { StartInfo = startInfo, };
+                proc.Start();
+                Environment.Exit(1);
+            }
+            else
+            {
+                BuildAvaloniaApp()
+                    .StartWithClassicDesktopLifetime(args);
+            }
+        }
 
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()

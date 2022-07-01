@@ -5,26 +5,31 @@ using System.IO;
 using AvaloniaColorPicker;
 
 
-namespace Avalonia.NETCoreApp1
+namespace DS4LED
 {
     public partial class MainWindow : Window
     {
+        
+        
         public MainWindow()
         {
-            
             if (Environment.UserName != "root")
             {
-                var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                    .GetMessageBoxStandardWindow("title", "Please run app as root!");
+                var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow("title", "Please run app as root!");
                 messageBoxStandardWindow.Show();
-                //Close();
-            } else InitializeComponent();
+            }
+            else
+            {
+                InitializeComponent();
+                ColorPicker color = this.FindControl<ColorPicker>("colorPicker");
+                TextBox DeviceName = this.FindControl<TextBox>("DeviceName");
+
+            }
         }
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
         { 
-            ColorPicker color = this.FindControl<ColorPicker>("colorPicker");
-            TextBox DeviceName = this.FindControl<TextBox>("DeviceName");
+            
 
             string path = $"/sys/class/leds/{DeviceName.Text}";
 

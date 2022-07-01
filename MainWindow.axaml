@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="655" d:DesignHeight="400"
         MinWidth="650" MinHeight="400"
         MaxWidth="650" MaxHeight="400"
-        x:Class="Avalonia.NETCoreApp1.MainWindow"
+        x:Class="DS4LED.MainWindow"
         CanResize="False"
         Background="#696969"
         Title="DS4Led GUI">

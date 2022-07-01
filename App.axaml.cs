@@ -2,14 +2,16 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using System;
+using System.IO;
+using System.Diagnostics;
 
-namespace Avalonia.NETCoreApp1
+namespace DS4LED
 {
     public partial class App : Application
     {
         public override void Initialize()
         {
-            AvaloniaXamlLoader.Load(this);
+             AvaloniaXamlLoader.Load(this);
         }
 
         public override void OnFrameworkInitializationCompleted()

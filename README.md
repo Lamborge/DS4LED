@@ -1,6 +1,6 @@
-# ds4led-gui
+# DS4LED
 
-ds4led-gui is a program that changes the color of the LED backlight on Dualshock 4
+DS4LED is a program that changes the color of the LED backlight on Dualshock 4
 
 ## Requirements
 .NET Runtime 6.0 x64 or higher
@@ -12,7 +12,7 @@ Put it in the program and click Apply
 
 ## Building and running
 ```bash
-git clone https://github.com/Lamborge/ds4led-gui.git
-cd ds4led-gui
-dotnet run
+git clone https://github.com/Lamborge/DS4LED.git
+cd DS4LED
+dotnet build
 ```
