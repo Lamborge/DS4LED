@@ -3,7 +3,8 @@
 DS4LED is a program that changes the color of the LED backlight on Dualshock 4
 
 ## Requirements
-.NET Runtime 6.0 x64 or higher
+.NET Runtime 6.0 x64 or higher\
+Policykit(pkexec)
 
 ## Usage
 
