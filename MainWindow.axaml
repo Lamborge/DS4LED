@@ -25,7 +25,14 @@
                         Name="colorPicker"/>
             <Grid Grid.Row="1" ColumnDefinitions="Auto,5,Auto,Auto" RowDefinitions="Auto">
                 <TextBlock Grid.Column="0" Margin="11,0,0,0" FontSize="20" Foreground="#292929" VerticalAlignment="Center">Set Devise:</TextBlock>
-                <TextBox Grid.Column="2" Width="190" Text="0005:054C:05C4.0009" VerticalContentAlignment="Center" FontSize="15" Name="DeviceName"></TextBox>
+                <!-- <TextBox Grid.Column="2" Width="190" Text="0005:054C:05C4.0009" VerticalContentAlignment="Center" FontSize="15" Name="DeviceName"></TextBox> -->
+                <ComboBox Grid.Column="2" Name="DeviceComboBox" Width="200"> 
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
                 <TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="6" Foreground="#303030">you can find it in /sys/class/leds/</TextBlock>
             </Grid>
             <Button Grid.Row="2" HorizontalAlignment="Center" Margin="10" FontSize="20" Foreground="#212121" Click="Button_OnClick">Apply</Button>

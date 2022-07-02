@@ -13,8 +13,8 @@
         <!--This helps with theme dll-s trimming.
         If you will publish your application in self-contained mode with p:PublishTrimmed=true and it will use Fluent theme Default theme will be trimmed from the output and vice versa.
         https://github.com/AvaloniaUI/Avalonia/issues/5593 -->
-        <!--<TrimmableAssembly Include="Avalonia.Themes.Fluent" /> -->
-        <!-- <TrimmableAssembly Include="Avalonia.Themes.Default" /> -->
+        <!-- <TrimmableAssembly Include="Avalonia.Themes.Fluent" /> -->
+        <TrimmableAssembly Include="Avalonia.Themes.Default" /> 
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.15" />
@@ -28,7 +28,4 @@
     <ItemGroup>
         <AvaloniaResource Include="Assets/icon.ico" />
     </ItemGroup>
-    <!--<ItemGroup>
-      <Folder Include="Assets" />
-    </ItemGroup> -->
 </Project>
