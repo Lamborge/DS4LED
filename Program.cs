@@ -1,7 +1,5 @@
 ﻿using Avalonia;
-using System;
 using System.Diagnostics;
-using System.IO;
 
 namespace DS4LED
 {
@@ -15,7 +13,7 @@ namespace DS4LED
         {
             if (Environment.UserName != "root")
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo() { FileName = "pkexec", Arguments = $"env DISPLAY={Environment.GetEnvironmentVariable("DISPLAY")} XAUTHORITY={Environment.GetEnvironmentVariable("XAUTHORITY")}  {Directory.GetCurrentDirectory()}/DS4LED", }; 
+                ProcessStartInfo startInfo = new ProcessStartInfo() { FileName = "pkexec", Arguments = $@"env DISPLAY={Environment.GetEnvironmentVariable("DISPLAY")} XAUTHORITY={Environment.GetEnvironmentVariable("XAUTHORITY")}  {Directory.GetCurrentDirectory()}/DS4LED" }; 
                 Process proc = new Process() { StartInfo = startInfo, };
                 proc.Start();
                 //Environment.Exit(1);
