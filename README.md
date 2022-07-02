@@ -1,4 +1,4 @@
-![Logo](https://github.com/Lamborge/DS4LED/blob/main/Assets/icon_hd.ico)
+![Logo](https://github.com/Lamborge/DS4LED/blob/main/Assets/icon_hd.jpg)
 
 # DS4LED
 
