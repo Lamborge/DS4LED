@@ -1,13 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Avalonia.Markup.Xaml;
-using Avalonia.Media;
-using AvaloniaColorPicker;
-
 
 namespace DS4LED
 {
@@ -16,65 +8,57 @@ namespace DS4LED
         public MainWindow()
         {
             InitializeComponent();
-            
-            List<string> LedsID = LocateDevices();
-            
-            ColorPicker color = this.FindControl<ColorPicker>("colorPicker");
-            //TextBox DeviceName = this.FindControl<TextBox>("DeviceName");
-            
-            var DeviceComboBox = this.FindControl<ComboBox>("DeviceComboBox");
-            DeviceComboBox.Items = LedsID;
+
+            DeviceComboBox.Items = LocateDevices();
             DeviceComboBox.SelectedIndex = 0;
         }
-
-        
-
-        /*private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-            
-            
-        }*/
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
             //string path = $"/sys/class/leds/{DeviceName.Text.ToString()}";
             string path = $"/sys/class/leds/{DeviceComboBox.SelectedItem}";
 
-            File.WriteAllText($"{path}:red/brightness", colorPicker.Color.R.ToString());
-            File.WriteAllText($"{path}:green/brightness", colorPicker.Color.G.ToString());
-            File.WriteAllText($"{path}:blue/brightness", colorPicker.Color.B.ToString());
+
+            try
+            {
+                File.WriteAllText($"{path}:red/brightness", ColorPicker.Color.R.ToString());
+                File.WriteAllText($"{path}:green/brightness", ColorPicker.Color.G.ToString());
+                File.WriteAllText($"{path}:blue/brightness", ColorPicker.Color.B.ToString());
+            }
+            catch
+            {
+                var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+                    .GetMessageBoxStandardWindow("title", "Incorrect HiDraw Dualshock ID! \n (maybe he not connected)");
+                messageBoxStandardWindow.Show();
+            }
+            
         }
 
-        List<string> LocateDevices()
+        private void Refresh_OnLick(object? sender, RoutedEventArgs routedEventArgs)
         {
-            List<string> leds = new List<string>();
-            string[] leds_path = Directory.GetDirectories("/sys/class/leds/");
-            foreach (string item in leds_path)
+            DeviceComboBox.Items = LocateDevices();
+            DeviceComboBox.SelectedIndex = 0;
+        }
+
+        private static List<string> LocateDevices()
+        {
+            List<string> led = new List<string>();
+            string[] ledPath = Directory.GetDirectories("/sys/class/leds/");
+            foreach (var item in ledPath)
             {
                 string[] temp = item.Split('/');
-                try
-                {
-                    temp = temp[4].Split(':');
-                    leds.Add(temp[0]+":"+temp[1]+":"+temp[2]);
-                }
-                catch (Exception exception)
-                {
-                    continue;
-                }
+                temp = temp[4].Split(':');
+                led.Add(temp[0] + ":" + temp[1] + ":" + temp[2]);
             }
 
-            
-            leds = leds.GroupBy(x => x)
+
+            led = led.GroupBy(x => x)
                 .Where(g => g.Count() > 1)
                 .Select(y => y.Key)
                 .ToList();
-            if (leds.Count == 0)
-            {
-                leds.Add("No Dualshock connected");
-            }
+            if (led.Count == 0) led.Add("No Dualshock connected");
             
-            return leds;
+            return led;
         }
     }
 }

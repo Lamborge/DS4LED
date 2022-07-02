@@ -3,17 +3,22 @@
 DS4LED is a program that changes the color of the LED backlight on Dualshock 4
 
 ## Requirements
-.NET Runtime 6.0 x64 or higher\
-Policykit(pkexec)
+.NET 6.0 Runtime x64 or higher\
+PolicyKit(pkexec utility)
 
 ## Usage
 
-Find the Dualshock 4 hidraw id in ```/sys/class/leds``` (like ```0005:054C:05C4.0009```)\
-Put it in the program and click Apply
+Select Dualshock HiDraw id in program and click Apply
 
 ## Building and running
+### Building
 ```bash
 git clone https://github.com/Lamborge/DS4LED.git
 cd DS4LED
-dotnet build
+dotnet publish --configuration Release
+```
+### Running
+```bash
+cd bin/Release/net6.0/linux-x64/publish/
+./DS4LED
 ```

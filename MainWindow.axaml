@@ -11,7 +11,7 @@
         CanResize="False"
         Background="#696969"
         Title="DS4Led GUI">
-        <Grid RowDefinitions="Auto,Auto,Auto" Margin="0">
+        <Grid RowDefinitions="Auto,30,Auto" Margin="0">
             <colorpicker:ColorPicker Grid.Column="0" HorizontalAlignment="Left"
                         IsAlphaVisible="False" 
                         IsColourSpaceSelectorVisible="False" 
@@ -22,19 +22,21 @@
                         IsCIELABVisible="False"
                         IsPaletteVisible="False"
                         Color="#56B4E9"
-                        Name="colorPicker"/>
-            <Grid Grid.Row="1" ColumnDefinitions="Auto,5,Auto,Auto" RowDefinitions="Auto">
-                <TextBlock Grid.Column="0" Margin="11,0,0,0" FontSize="20" Foreground="#292929" VerticalAlignment="Center">Set Devise:</TextBlock>
+                        Name="ColorPicker"/>
+            <Grid Grid.Row="1" ColumnDefinitions="Auto,5,Auto,Auto" RowDefinitions="40">
+                <TextBlock Grid.Column="0" Grid.Row="0" Margin="11,0,0,0" FontSize="20" Foreground="#292929" VerticalAlignment="Center">Set Devise:</TextBlock>
                 <!-- <TextBox Grid.Column="2" Width="190" Text="0005:054C:05C4.0009" VerticalContentAlignment="Center" FontSize="15" Name="DeviceName"></TextBox> -->
-                <ComboBox Grid.Column="2" Name="DeviceComboBox" Width="210"> 
+                <ComboBox Grid.Column="2" Grid.Row="0" Margin="0" VerticalAlignment="Center" Name="DeviceComboBox" Width="210"> 
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="6" Foreground="#303030">you can find it in /sys/class/leds/</TextBlock>
+                <Button Grid.Column="3" Grid.Row="0" Margin="10,0,0,0" Click="Refresh_OnLick" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30">
+                    <Image Source="Assets/icon_refresh.ico" Width="30" Height="30"></Image>
+                </Button>
             </Grid>
-            <Button Grid.Row="2" HorizontalAlignment="Center" Margin="10" FontSize="20" Foreground="#212121" Click="Button_OnClick">Apply</Button>
+            <Button Grid.Row="2" Margin="0,16,0,0" FontSize="20" HorizontalAlignment="Center" Foreground="#212121" Click="Button_OnClick">Apply</Button>
         </Grid>
 </Window>
