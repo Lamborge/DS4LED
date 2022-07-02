@@ -1,3 +1,5 @@
+![Logo](https://github.com/Lamborge/DS4LED/blob/main/Assets/icon_hd.ico)
+
 # DS4LED
 
 DS4LED is a program that changes the color of the LED backlight on Dualshock 4
