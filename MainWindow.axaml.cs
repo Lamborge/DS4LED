@@ -64,14 +64,15 @@ namespace DS4LED
                 }
             }
 
+            
+            leds = leds.GroupBy(x => x)
+                .Where(g => g.Count() > 1)
+                .Select(y => y.Key)
+                .ToList();
             if (leds.Count == 0)
             {
                 leds.Add("No Dualshock connected");
             }
-            else leds = leds.GroupBy(x => x)
-                .Where(g => g.Count() > 1)
-                .Select(y => y.Key)
-                .ToList();
             
             return leds;
         }
