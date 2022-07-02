@@ -39,7 +39,7 @@ namespace DS4LED
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
             //string path = $"/sys/class/leds/{DeviceName.Text.ToString()}";
-            string path = $"/sys/class/leds/{DeviceComboBox.SelectedItem.ToString()}";
+            string path = $"/sys/class/leds/{DeviceComboBox.SelectedItem}";
 
             File.WriteAllText($"{path}:red/brightness", colorPicker.Color.R.ToString());
             File.WriteAllText($"{path}:green/brightness", colorPicker.Color.G.ToString());

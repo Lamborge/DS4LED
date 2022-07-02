@@ -6,8 +6,13 @@
         <Nullable>enable</Nullable>
         <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
         <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
-        <TrimMode>link</TrimMode>
+        <TrimMode>copyused</TrimMode>
         <!-- <BuiltInComInteropSupport>true</BuiltInComInteropSupport> -->
+        <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+        <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+        <RunAnalyzers>false</RunAnalyzers>
+        <SatelliteResourceLanguages>none</SatelliteResourceLanguages>
+        <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
         <!--This helps with theme dll-s trimming.
@@ -20,7 +25,6 @@
         <PackageReference Include="Avalonia" Version="0.10.15" />
         <PackageReference Include="Avalonia.Desktop" Version="0.10.15" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.15" />
         <PackageReference Include="AvaloniaColorPicker" Version="1.3.3" />
         <PackageReference Include="MessageBox.Avalonia" Version="2.0.1" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
